@@ -36,7 +36,7 @@ export default function ManageProperties() {
   const fetchProperties = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:8000/api/properties"
+        "https://property-consultant.onrender.com/api/properties"
       );
 
       setProperties(res.data);
@@ -115,7 +115,8 @@ export default function ManageProperties() {
       });
 
       await axios.put(
-        `http://localhost:8000/api/properties/${editingProperty._id}`,
+        `https://property-consultant.onrender.com/api/properties/${editingProperty._id}`,
+        
         form,
         {
           headers: {

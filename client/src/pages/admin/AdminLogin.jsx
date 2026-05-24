@@ -12,7 +12,7 @@ export default function AdminLogin() {
   const handleLogin = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/auth/login",
+        "https://property-consultant.onrender.com/api/auth/login",
         {
           email,
           password,

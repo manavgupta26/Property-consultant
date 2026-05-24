@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8000/api/properties";
+const API = "https://property-consultant.onrender.com/api/properties";
 
 export const getProperties = async () => {
   const res = await axios.get(API);

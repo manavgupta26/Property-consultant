@@ -6,7 +6,12 @@ import propertyRoutes from "./routes/propertyRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 const app = express();
 dotenv.config();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://property-consultant-kbhut02c9-manavgupta26s-projects.vercel.app",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 

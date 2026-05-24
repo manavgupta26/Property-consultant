@@ -68,7 +68,7 @@ const handleSubmit = async () => {
     });
 
     const res = await axios.post(
-      "http://localhost:8000/api/properties",
+      "https://property-consultant.onrender.com/api/properties",
       form,
       {
         headers: {
