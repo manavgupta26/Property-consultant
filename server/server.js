@@ -8,7 +8,7 @@ const app = express();
 dotenv.config();
 app.use(
   cors({
-    origin: "https://property-consultant-kbhut02c9-manavgupta26s-projects.vercel.app",
+    origin: "https://property-consultant.vercel.app",
     credentials: true,
   })
 );
