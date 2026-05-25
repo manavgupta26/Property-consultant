@@ -38,7 +38,7 @@ const css = `
 
   .lp-hero {
     position: relative;
-    min-height: 92vh;
+    min-height: 93vh;
     display: flex;
     align-items: center;
     justify-content: center;

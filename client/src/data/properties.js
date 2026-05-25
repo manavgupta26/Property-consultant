@@ -1,9 +1,9 @@
 export const BROKER = {
-  name: "Haxxxx Shxxxx",
+  name: "Maxxxx Guxxxx",
   title: "Property Broker · Ludhiana",
   phone: "+91 98XXX-XXXXX",
   whatsapp: "9198XXX-XXXXX",
-  email: "harpreet@ludhianaproperties.com",
+  email: "manav@ludhianaproperties.com",
   areas: [
     "Model Town",
     "BRS Nagar",
