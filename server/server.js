@@ -4,8 +4,10 @@ import cors from "cors";
 import dotenv from "dotenv";
 import propertyRoutes from "./routes/propertyRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import areaRoutes from "./routes/areaRoutes.js";
 const app = express();
 dotenv.config();
+app.use("/api/areas", areaRoutes);
 app.use(
   cors({
     origin: "https://property-consultant.vercel.app",

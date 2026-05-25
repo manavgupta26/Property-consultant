@@ -15,6 +15,26 @@ export default function Home({
   onListProperty,
   onConsult,
 }) {
+  const [areas, setAreas] = useState([]);
+  const [areasLoading, setAreasLoading] =
+  useState(true);
+  const fetchAreas = async () => {
+  try {
+    const res = await fetch(
+      "https://property-consultant.onrender.com/api/areas"
+    );
+
+    const data = await res.json();
+
+    setAreas(data);
+
+  } catch (error) {
+    console.log(error);
+
+  } finally {
+    setAreasLoading(false);
+  }
+};
   const [properties, setProperties] = useState([]);
 const [loading, setLoading] = useState(true);
   // Filters belong to Home page
@@ -32,6 +52,7 @@ const [loading, setLoading] = useState(true);
   );
   useEffect(() => {
   fetchProperties();
+   fetchAreas();
 }, []);
 
 const fetchProperties = async () => {
@@ -71,6 +92,7 @@ if (loading) {
         setAreaFilter={setAreaFilter}
         propertyType={propertyType}
         setPropertyType={setPropertyType}
+        areas={areas}
       />
 
       {/* Listings */}
@@ -221,7 +243,8 @@ if (loading) {
             color: "#555",
           }}
         >
-          Serving: {BROKER.areas.join(" · ")}
+          Serving:{" "}
+{areas.map((a) => a.name).join(" · ")}
         </div>
       </footer>
     </>

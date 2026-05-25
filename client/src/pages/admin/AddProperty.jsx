@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const inputStyle = {
@@ -20,6 +20,21 @@ const buttonStyle = {
 };
 
 export default function AddProperty() {
+  const [areas, setAreas] = useState([]);
+const [newArea, setNewArea] = useState("");
+const [showNewArea, setShowNewArea] =
+  useState(false);
+  const fetchAreas = async () => {
+  try {
+    const res = await axios.get(
+      "https://property-consultant.onrender.com/api/areas"
+    );
+
+    setAreas(res.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
   const [images, setImages] = useState([]);
 
   const [formData, setFormData] = useState({
@@ -105,6 +120,9 @@ const handleSubmit = async () => {
     alert("Error Adding Property");
   }
 };
+useEffect(() => {
+  fetchAreas();
+}, []);
 
   return (
     <div
@@ -169,13 +187,110 @@ const handleSubmit = async () => {
     Area
   </label>
 
-        <input
-          name="area"
-          placeholder="Area"
-          style={inputStyle}
-          value={formData.area}
-          onChange={handleChange}
-        />
+       <select
+  name="area"
+  style={inputStyle}
+  value={formData.area}
+  onChange={(e) => {
+    if (e.target.value === "add-new") {
+      setShowNewArea(true);
+      setFormData((prev) => ({
+        ...prev,
+        area: "",
+      }));
+    } else {
+      setShowNewArea(false);
+
+      setFormData((prev) => ({
+        ...prev,
+        area: e.target.value,
+      }));
+    }
+  }}
+>
+  <option value="">
+    Select Area
+  </option>
+
+  {areas.map((area) => (
+    <option
+      key={area._id}
+      value={area.name}
+    >
+      {area.name}
+    </option>
+  ))}
+
+  <option value="add-new">
+    + Add New Area
+  </option>
+</select>
+
+{showNewArea && (
+  <div
+    style={{
+      display: "flex",
+      gap: 10,
+      marginTop: 10,
+    }}
+  >
+    <input
+      placeholder="Enter new area"
+      style={inputStyle}
+      value={newArea}
+      onChange={(e) =>
+        setNewArea(e.target.value)
+      }
+    />
+
+    <button
+      type="button"
+      style={{
+        ...buttonStyle,
+        width: 140,
+      }}
+      onClick={async () => {
+        if (!newArea.trim()) return;
+
+        try {
+          const res = await axios.post(
+            "https://property-consultant.onrender.com/api/areas",
+            {
+              name: newArea,
+            },
+            {
+              headers: {
+                Authorization:
+                  localStorage.getItem(
+                    "token"
+                  ),
+              },
+            }
+          );
+
+          setAreas((prev) => [
+            ...prev,
+            res.data,
+          ]);
+
+          setFormData((prev) => ({
+            ...prev,
+            area: res.data.name,
+          }));
+
+          setNewArea("");
+
+          setShowNewArea(false);
+
+        } catch (error) {
+          console.log(error);
+        }
+      }}
+    >
+      Add
+    </button>
+  </div>
+)}
 <label
     style={{
       display: "block",

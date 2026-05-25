@@ -8,6 +8,7 @@ export default function FilterBar({
   setAreaFilter,
   propertyType,
   setPropertyType,
+  areas,
 }) {
   return (
     <div style={styles.filterBar}>
@@ -120,11 +121,14 @@ export default function FilterBar({
           >
             <option value="all">All Areas</option>
 
-            {BROKER.areas.map((a) => (
-              <option key={a} value={a}>
-                {a}
-              </option>
-            ))}
+            {areas.map((area) => (
+  <option
+    key={area._id}
+    value={area.name}
+  >
+    {area.name}
+  </option>
+))}
           </select>
         </div>
 
