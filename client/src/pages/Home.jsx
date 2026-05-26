@@ -485,7 +485,7 @@ export default function Home({ onVisit, onListProperty, onConsult }) {
 
           {/* Type chips */}
           <div className="lp-filter-chips">
-            {["all", "Sale", "Rent"].map((t) => (
+            {["all", "sale", "rent"].map((t) => (
               <button
                 key={t}
                 className={`lp-chip${filter === t ? " active" : ""}`}
