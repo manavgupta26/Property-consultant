@@ -394,10 +394,10 @@ export default function Home({ onVisit, onListProperty, onConsult }) {
   const [areaFilter, setAreaFilter] = useState("all");
   const [propertyType, setPropertyType] = useState("all");
 
- const filtered = properties.filter(
+const filtered = properties.filter(
   (p) =>
     (filter === "all" ||
-      p.type?.toLowerCase() === filter.toLowerCase()) &&
+      p.type?.toLowerCase().includes(filter.toLowerCase())) &&
     (areaFilter === "all" || p.area === areaFilter) &&
     (propertyType === "all" ||
       p.category?.toLowerCase() === propertyType)
