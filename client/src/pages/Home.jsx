@@ -511,7 +511,6 @@ const filtered = properties.filter(
             <option value="all">All Types</option>
             <option value="residential">Residential</option>
             <option value="commercial">Commercial</option>
-            <option value="plot">Plot</option>
           </select>
         </div>
       </div>
