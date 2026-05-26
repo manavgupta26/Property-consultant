@@ -393,7 +393,7 @@ export default function Home({ onVisit, onListProperty, onConsult }) {
   const [filter, setFilter] = useState("all");
   const [areaFilter, setAreaFilter] = useState("all");
   const [propertyType, setPropertyType] = useState("all");
-console.log(properties.map(p => p.type));
+
 const filtered = properties.filter(
   (p) =>
     (filter === "all" ||
@@ -487,13 +487,13 @@ const filtered = properties.filter(
 
           {/* Type chips */}
           <div className="lp-filter-chips">
-            {["all", "sale", "rent"].map((t) => (
+            {["all", "sell", "rent"].map((t) => (
               <button
                 key={t}
                 className={`lp-chip${filter === t ? " active" : ""}`}
                 onClick={() => setFilter(t)}
               >
-                {t === "all" ? "All" : t === "sale" ? "For Sale" : "For Rent"}
+                {t === "all" ? "All" : t === "sell" ? "For Sale" : "For Rent"}
               </button>
             ))}
           </div>
