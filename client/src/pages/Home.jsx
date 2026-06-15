@@ -3,6 +3,7 @@ import FilterBar from "../components/FilterBar";
 import PropertyCard from "../components/PropertyCard";
 import { BROKER } from "../data/properties";
 import { getProperties } from "../services/propertyService";
+import PropertyCardSkeleton from "../components/PropertyCardSkeleton";
 import "../index.css";
 import "./Home.css";
 
@@ -156,7 +157,7 @@ export default function Home({ onVisit, onListProperty, onConsult }) {
         {loading ? (
           <div className="lp-grid">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="lp-skeleton-card" />
+              <PropertyCardSkeleton key={i} />
             ))}
           </div>
         ) : filtered.length === 0 ? (

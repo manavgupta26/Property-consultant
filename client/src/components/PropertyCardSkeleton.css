@@ -1,0 +1,123 @@
+.property-skeleton {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f1f1f1 25%,
+    #e6e6e6 50%,
+    #f1f1f1 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.property-skeleton-image {
+  height: 220px;
+  padding: 18px;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.property-skeleton-badges {
+  display: flex;
+  gap: 8px;
+}
+
+.badge {
+  width: 80px;
+  height: 28px;
+  border-radius: 999px;
+}
+
+.price {
+  width: 120px;
+  height: 34px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.title {
+  width: 80%;
+  height: 24px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.location {
+  width: 50%;
+  height: 16px;
+  border-radius: 4px;
+}
+
+.property-skeleton-body {
+  padding: 18px;
+}
+
+.desc {
+  height: 14px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.desc.short {
+  width: 70%;
+  margin-bottom: 18px;
+}
+
+.property-skeleton-specs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.spec {
+  flex: 1;
+  height: 34px;
+  border-radius: 8px;
+}
+
+.property-skeleton-tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.tag {
+  width: 70px;
+  height: 26px;
+  border-radius: 999px;
+}
+
+.property-skeleton-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  height: 44px;
+  border-radius: 12px;
+}
+
+.btn.primary {
+  flex: 1;
+}
+
+.btn.secondary {
+  width: 90px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
