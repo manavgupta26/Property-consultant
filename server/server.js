@@ -39,7 +39,9 @@ app.get("/", (req, res) => {
   res.send("API Running");
 });
 
-
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
